@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bible chapter counts for reading plans</title><meta name="description" content="Download 1,189 chapter counts for the KJV and Chinese Union Version, inspect the counting rules, and calculate reading estimates at your own rate.">
+<style>
+:root{--fg:#1a1a1a;--muted:#5b5b5b;--bg:#fdfdfb;--line:#e4e2da;--accent:#7a5c1e}
+@media(prefers-color-scheme:dark){:root{--fg:#e8e6e0;--muted:#a3a09a;--bg:#161514;--line:#33312d;--accent:#d9b064}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Georgia,serif;padding:0 16px}
+main{max-width:680px;margin:0 auto;padding:56px 0 80px}
+h1{font-size:1.9rem;line-height:1.25;margin:0 0 .4rem}
+h2{font-size:1.2rem;margin:2.4rem 0 .6rem}
+.sub{color:var(--muted);font-size:1.02rem;margin:0 0 2rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.95rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
+code{background:rgba(128,128,128,.14);padding:.1em .35em;border-radius:4px;font-size:.9em}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--accent);color:var(--muted)}
+a{color:var(--accent)}
+ul{padding-left:1.3rem}
+.note{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:2.6rem;padding-top:1rem}
+</style></head><body><main>
+<h1>Bible chapter counts for reading plans</h1>
+<p class="sub">1,189 chapters, 66 books, two editions. Compare reading assignments before choosing a pace.</p>
+<p>One chapter is not a fixed amount of reading. This reference provides chapter-level counts from the King James Version (KJV) and simplified Chinese Union Version (CUV), for readers, group leaders and people building reading-plan tools.</p>
+<p><a href="chapter-counts.csv" download>Download the complete chapter-count CSV</a>. It includes counts and fixed-rate estimates, with no account required. A small <a href="estimate.py" download>offline Python calculator</a> lets you substitute a reading rate. Download both files into the same folder, then run <code>python estimate.py --book Ruth --chapter 2 --wpm 200</code> with Python 3.10 or newer.</p>
+<h2>Compare the same chapters</h2>
+<table><caption>Counts from the named source corpora</caption><thead><tr><th scope="col">Chapter</th><th scope="col">KJV words</th><th scope="col">CUV characters</th></tr></thead><tbody><tr><td>Genesis 1</td><td>797</td><td>751</td></tr><tr><td>Psalms 117</td><td>33</td><td>50</td></tr><tr><td>Psalms 119</td><td>2423</td><td>3304</td></tr><tr><td>John 3</td><td>763</td><td>894</td></tr><tr><td>Ruth 2</td><td>763</td><td>860</td></tr><tr><td>Ruth 3</td><td>541</td><td>597</td></tr></tbody></table>
+<p>English words and Chinese characters are different units. These columns do not measure translation completeness, difficulty or proficiency.</p>
+<h2>Make a planning estimate</h2>
+<p>Divide the count by a rate in the same unit. Ruth 2 has 763 KJV words: at a personally chosen 200 words per minute, 763 / 200 = 3.815 minutes, or about 3.8 minutes. Ruth 3 has 541 words, about 2.7 minutes at that rate.</p>
+<p>Use your own timed reading to choose a rate, and leave separate time for discussion, reflection and breaks. These estimates do not measure understanding or spiritual growth. They are not validated predictions for children, oral reading or individual readers.</p>
+<h2>Counting rules and scope</h2>
+<ul><li>KJV words are whitespace-separated tokens in verse text. A token containing punctuation remains one token.</li><li>CUV characters are Unicode letters and numbers in verse text. Spaces, punctuation and symbols are excluded.</li><li>Verse rows are grouped by book and chapter. Editorial headings outside those rows are not counted.</li><li>This is the 66-book arrangement shared by these files, not every Christian canon. Edition and segmentation differences can change counts.</li></ul>
+<p>Totals: 789,634 KJV tokens and 930,059 CUV letter/number characters. The CSV includes book names, chapter numbers, both counts and estimates rounded to one decimal.</p>
+<h2>About the supplied time columns</h2>
+<p>The KJV estimate divides by 238 words/minute, an adult English non-fiction silent-reading average in <a href="https://doi.org/10.1016/j.jml.2019.104047">Brysbaert's 2019 reading-rate review</a>. It is a baseline, not a Bible-specific experiment.</p>
+<p>The CUV estimate divides by 390 characters/minute. That is our conversion of the review's Chinese rate of 260 word-units/minute using its rough 1.5 characters/word rule; 390 is not printed in Table 5. The conversion and individual variation limit precision.</p>
+<h2>Provenance</h2>
+<p>KJV source: <a href="https://github.com/aruljohn/Bible-kjv">aruljohn/Bible-kjv</a>. CUV source: <a href="https://github.com/seven1m/open-bibles">seven1m/open-bibles</a>, file <code>chi-cuv-simp.usfx.xml</code>. TrustBible imported its verse corpora on September 6, 2026 and checked these counts on October 25, 2026. This repository distributes derived counts, not scripture text.</p>
+<p>For the full searchable table, corpus details and interpretation limits, see <a href="https://trustbible.org/blog/how-long-to-read-each-bible-chapter/">TrustBible's chapter reading-time reference</a>. This companion reference is maintained by the TrustBible team.</p>
+<p class="note">The CSV is a dated snapshot. The calculator performs transparent arithmetic on its counts. It does not call a remote service, collect personal information or require registration.</p>
+</main></body></html>
